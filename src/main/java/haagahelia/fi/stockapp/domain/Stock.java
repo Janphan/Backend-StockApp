@@ -1,7 +1,5 @@
 package haagahelia.fi.stockapp.domain;
 
-import java.sql.Date;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +13,7 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Date expiredDate;
+    private String expiredDate;
     private int quantity;
     private String description;
     private double price;
@@ -36,11 +34,11 @@ public class Stock {
         this.name = name;
     }
 
-    public Date getExpiredDate() {
+    public String getExpiredDate() {
         return expiredDate;
     }
 
-    public void setExpiredDate(Date expiredDate) {
+    public void setExpiredDate(String expiredDate) {
         this.expiredDate = expiredDate;
     }
 
@@ -83,7 +81,7 @@ public class Stock {
     public Stock() {
     }
 
-    public Stock(String name, Date expiredDate, int quantity, String description, double price, Category category) {
+    public Stock(String name, String expiredDate, int quantity, String description, double price, Category category) {
         super();
         this.name = name;
         this.expiredDate = expiredDate;

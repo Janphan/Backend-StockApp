@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.ui.Model;
-import haagahelia.fi.stockapp.domain.CategoryRepository;
+// import haagahelia.fi.stockapp.domain.CategoryRepository;
 import haagahelia.fi.stockapp.domain.Stock;
 import haagahelia.fi.stockapp.domain.StockRepository;
 
@@ -18,8 +18,8 @@ import haagahelia.fi.stockapp.domain.StockRepository;
 public class StockController {
     @Autowired
     private StockRepository repository;
-    @Autowired
-    private CategoryRepository cRepository;
+    // @Autowired
+    // private CategoryRepository cRepository;
 
     // show all stocks
     @RequestMapping(value = "/stocklist")

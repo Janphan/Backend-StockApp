@@ -1,4 +1,4 @@
-package bookstore.bookstore.domain;
+package haagahelia.fi.stockapp.domain;
 
 import jakarta.validation.constraints.*;
 
