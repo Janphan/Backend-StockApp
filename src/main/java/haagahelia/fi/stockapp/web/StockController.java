@@ -33,4 +33,9 @@ public class StockController {
     public @ResponseBody List<Stock> stocktListRest() {
         return (List<Stock>) repository.findAll();
     }
+
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
 }

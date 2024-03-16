@@ -34,7 +34,7 @@ public class WebSecurityConfig {
                                                 ))
                                 .formLogin(formlogin -> formlogin
                                                 .loginPage("/login")
-                                                .defaultSuccessUrl("/booklist", true)
+                                                .defaultSuccessUrl("/stocklist", true)
                                                 .permitAll())
                                 .logout(logout -> logout
                                                 .permitAll());
