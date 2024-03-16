@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+  <head>
+    <title>Book Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/bootstrap.min.css"
+      th:href="@{css/bootstrap.min.css}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-4">
+        <h3>Stocks</h3>
+      </div>
+      <div class="col-md-4">
+        <i>Welcome <b sec:authentication="name"></b>, 
+            your role is <b sec:authentication="principal.authorities"></b>
+      </div>
+      </div>
+      <div class="col-md-4" style="padding: 20px 0">
+        <form th:action="@{/logout}" method="post">
+          <input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+        </form>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Expired Date</th>
+            <th>Quantity</th>
+            <th>Description</th>
+            <th>Price ($)</th>
+            <th>Category</th>
+            <th sec:authorize="hasAuthority('ADMIN')"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="stock : ${stocks}">
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.expiredDate}"></td>
+            <td th:text="${book.quantity}"></td>
+            <td th:text="${book.description}"></td>
+            <td th:text="${book.price}"></td>
+            <td th:text="${book.category.name}"></td>
+            <td sec:authorize="hasAuthority('ADMIN')">
+              <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger"
+                >Delete Stock</a
+              >
+            </td>
+            <td>
+              <a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-danger"
+                >Edit Stock</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="/add" class="btn btn-success">Add Book</a>
+    </div>
+  </body>
+</html>
