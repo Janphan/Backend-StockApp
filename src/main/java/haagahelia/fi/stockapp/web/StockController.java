@@ -23,7 +23,7 @@ public class StockController {
 
     // show all stocks
     @RequestMapping(value = "/stocklist")
-    public String bookList(Model model) {
+    public String stockList(Model model) {
         model.addAttribute("stocks", repository.findAll());
         return "stocklist";
     }

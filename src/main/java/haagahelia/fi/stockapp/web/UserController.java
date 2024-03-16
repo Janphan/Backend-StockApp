@@ -20,7 +20,7 @@ public class UserController {
     private AppUserRepository repository;
 
     @RequestMapping(value = "signup")
-    public String addBook(Model model) {
+    public String addStock(Model model) {
         model.addAttribute("signupform", new SignupForm());
         return "signup";
     }

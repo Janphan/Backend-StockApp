@@ -5,7 +5,7 @@
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
 >
   <head>
-    <title>Book Store</title>
+    <title>Stock App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link
       type="text/css"
@@ -43,26 +43,26 @@
         </thead>
         <tbody>
           <tr th:each="stock : ${stocks}">
-            <td th:text="${book.name}"></td>
-            <td th:text="${book.expiredDate}"></td>
-            <td th:text="${book.quantity}"></td>
-            <td th:text="${book.description}"></td>
-            <td th:text="${book.price}"></td>
-            <td th:text="${book.category.name}"></td>
+            <td th:text="${stock.name}"></td>
+            <td th:text="${stock.expiredDate}"></td>
+            <td th:text="${stock.quantity}"></td>
+            <td th:text="${stock.description}"></td>
+            <td th:text="${stock.price}"></td>
+            <td th:text="${stock.category.name}"></td>
             <td sec:authorize="hasAuthority('ADMIN')">
-              <a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger"
+              <a th:href="@{/delete/{id}(id=${stock.id})}" class="btn btn-danger"
                 >Delete Stock</a
               >
             </td>
             <td>
-              <a th:href="@{/edit/{id}(id=${book.id})}" class="btn btn-danger"
+              <a th:href="@{/edit/{id}(id=${stock.id})}" class="btn btn-danger"
                 >Edit Stock</a
               >
             </td>
           </tr>
         </tbody>
       </table>
-      <a href="/add" class="btn btn-success">Add Book</a>
+      <a href="/add" class="btn btn-success">Add Stock</a>
     </div>
   </body>
 </html>
