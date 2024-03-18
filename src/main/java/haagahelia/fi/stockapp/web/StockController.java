@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,6 +65,14 @@ public class StockController {
         model.addAttribute("stock", repository.findById(stockId));
         model.addAttribute("categories", crepository.findAll());
         return "updatestock";
+    }
+
+    // delete stock
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping(value = "/delete/{id}")
+    public String deleteStock(@PathVariable("id") Long stockId) {
+        repository.deleteById(stockId);
+        return "redirect:../stocklist";
     }
 
     // log in
