@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,9 +56,18 @@ public class StockController {
     @PostMapping(value = "/save")
     public String save(Stock stock) {
         repository.save(stock);
-        return "redirect:booklist";
+        return "redirect:stocklist";
     }
 
+    // edit stock information
+    @GetMapping(value = "/edit/{id}")
+    public String editStock(@PathVariable("id") Long stockId, Model model) {
+        model.addAttribute("stock", repository.findById(stockId));
+        model.addAttribute("categories", crepository.findAll());
+        return "updatestock";
+    }
+
+    // log in
     @RequestMapping(value = "/login")
     public String login() {
         return "login";

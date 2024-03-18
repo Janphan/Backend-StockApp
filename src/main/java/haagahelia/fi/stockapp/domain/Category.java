@@ -45,7 +45,7 @@ public class Category {
         return stocks;
     }
 
-    public void setBooks(List<Stock> stocks) {
+    public void setStocks(List<Stock> stocks) {
         this.stocks = stocks;
     }
 
