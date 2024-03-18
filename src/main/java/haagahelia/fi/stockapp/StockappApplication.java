@@ -32,6 +32,7 @@ public class StockappApplication {
 			crepository.save(new Category("Dry"));
 			crepository.save(new Category("Medicine"));
 			crepository.save(new Category("Spice"));
+			crepository.save(new Category("Frozen"));
 			// save stocks
 			srepository.save(new Stock("Rice", "20.06.2024", 25, "Thailan premium rice", 40,
 					crepository.findByName("Dry").get(0)));
