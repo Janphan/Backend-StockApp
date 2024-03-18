@@ -25,11 +25,11 @@ public class Category {
         this.name = name;
     }
 
-    public Long getCatagoryId() {
+    public Long getCategoryid() {
         return categoryid;
     }
 
-    public void setCatagoryId(Long categoryid) {
+    public void setCategoryid(Long categoryid) {
         this.categoryid = categoryid;
     }
 
@@ -41,11 +41,11 @@ public class Category {
         this.name = name;
     }
 
-    public List<Stock> geStocks() {
+    public List<Stock> getStocks() {
         return stocks;
     }
 
-    public void setStocks(List<Stock> stocks) {
+    public void setBooks(List<Stock> stocks) {
         this.stocks = stocks;
     }
 
