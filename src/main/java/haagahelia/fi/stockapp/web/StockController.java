@@ -1,5 +1,6 @@
 package haagahelia.fi.stockapp.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import haagahelia.fi.stockapp.domain.StockCategoryRepository;
 import haagahelia.fi.stockapp.domain.Stock;
 import haagahelia.fi.stockapp.domain.StockRepository;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class StockController {
@@ -80,4 +82,20 @@ public class StockController {
     public String login() {
         return "login";
     }
+
+    // search stock
+
+    @GetMapping("/search")
+    public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+        List<Stock> searchResults = null;
+
+        if (keyword != null && !keyword.isEmpty()) {
+            // Perform search operation using the findByName method
+            searchResults = repository.findByName(keyword);
+        }
+        model.addAttribute("searchResults", searchResults);
+        model.addAttribute("stockCategories", screpository.findAll());
+        return "searchform"; // Return the name of the HTML/Thymeleaf template
+    }
+
 }

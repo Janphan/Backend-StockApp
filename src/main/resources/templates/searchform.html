@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+<form th:action="@{/search}" method="get">
+    <input type="text" name="keyword" placeholder="Enter keyword">
+    <button type="submit">Search</button>
+</form>
+
+<div th:if="${searchResults}">
+    <h2>Search Results:</h2>
+    <ul>
+        <li th:each="result : ${searchResults}" th:text="${result}"></li>
+    </ul>
+</div>
+</html>

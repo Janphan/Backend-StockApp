@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface StockRepository extends CrudRepository<Stock, Long> {
     List<Stock> findByName(String name);
+
 }
