@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Bean;
 
 import haagahelia.fi.stockapp.domain.AppUser;
 import haagahelia.fi.stockapp.domain.AppUserRepository;
-import haagahelia.fi.stockapp.domain.Category;
-import haagahelia.fi.stockapp.domain.CategoryRepository;
+import haagahelia.fi.stockapp.domain.StockCategory;
+import haagahelia.fi.stockapp.domain.StockCategoryRepository;
 import haagahelia.fi.stockapp.domain.Stock;
 import haagahelia.fi.stockapp.domain.StockRepository;
 
@@ -24,15 +24,15 @@ public class StockappApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(StockRepository srepository, CategoryRepository crepository,
+	public CommandLineRunner demo(StockRepository srepository, StockCategoryRepository crepository,
 			AppUserRepository urepository) {
 		return (args) -> {
 			log.info("save a couple of stocks");
 			// save some categories
-			crepository.save(new Category("Dry"));
-			crepository.save(new Category("Medicine"));
-			crepository.save(new Category("Spice"));
-			crepository.save(new Category("Frozen"));
+			crepository.save(new StockCategory("Dry"));
+			crepository.save(new StockCategory("Medicine"));
+			crepository.save(new StockCategory("Spice"));
+			crepository.save(new StockCategory("Frozen"));
 			// save stocks
 			srepository.save(new Stock("Rice", "20.06.2024", 25, "Thailan premium rice", 40,
 					crepository.findByName("Dry").get(0)));
@@ -45,8 +45,8 @@ public class StockappApplication {
 					"user1@gmail.com", "USER");
 			AppUser user2 = new AppUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
 					"user2@gmail.com", "ADMIN");
-			// urepository.save(user1);
-			// urepository.save(user2);
+			urepository.save(user1);
+			urepository.save(user2);
 			log.info("fetch all stocks");
 			for (Stock stock : srepository.findAll()) {
 				log.info(stock.toString());

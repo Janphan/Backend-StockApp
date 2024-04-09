@@ -66,29 +66,30 @@ public class Stock {
         this.price = price;
     }
 
-    public Category getCategory() {
-        return category;
+    public StockCategory getStockCategory() {
+        return stockCategory;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setStockCategory(StockCategory stockCategory) {
+        this.stockCategory = stockCategory;
     }
 
     @ManyToOne
-    @JoinColumn(name = "categoryid")
-    private Category category;
+    @JoinColumn(name = "stockCategoryid")
+    private StockCategory stockCategory;
 
     public Stock() {
     }
 
-    public Stock(String name, String expiredDate, int quantity, String description, double price, Category category) {
+    public Stock(String name, String expiredDate, int quantity, String description, double price,
+            StockCategory stockCategory) {
         super();
         this.name = name;
         this.expiredDate = expiredDate;
         this.quantity = quantity;
         this.description = description;
         this.price = price;
-        this.category = category;
+        this.stockCategory = stockCategory;
     }
 
 }

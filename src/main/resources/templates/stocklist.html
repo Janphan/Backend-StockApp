@@ -48,7 +48,7 @@
             <td th:text="${stock.quantity}"></td>
             <td th:text="${stock.description}"></td>
             <td th:text="${stock.price}"></td>
-            <td th:text="${stock.category.name}"></td>
+            <td th:text="${stock.stockCategory.name}"></td>
             <td sec:authorize="hasAuthority('ADMIN')">
               <a th:href="@{/delete/{id}(id=${stock.id})}" class="btn btn-danger"
                 >Delete Stock</a

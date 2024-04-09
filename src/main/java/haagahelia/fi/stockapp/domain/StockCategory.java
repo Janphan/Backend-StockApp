@@ -7,30 +7,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-public class Category {
+public class StockCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long categoryid;
+    private Long stockcategoryid;
     private String name;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "stockCategory")
     private List<Stock> stocks;
 
-    public Category() {
+    public StockCategory() {
     }
 
-    public Category(String name) {
+    public StockCategory(String name) {
         super();
         this.name = name;
     }
 
-    public Long getCategoryid() {
-        return categoryid;
+    public Long getStockCategoryid() {
+        return stockcategoryid;
     }
 
-    public void setCategoryid(Long categoryid) {
-        this.categoryid = categoryid;
+    public void setStockCategoryid(Long stockcategoryid) {
+        this.stockcategoryid = stockcategoryid;
     }
 
     public String getName() {
@@ -51,6 +51,6 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category [categoryid=" + categoryid + ", name=" + name + "]";
+        return "StockCategory [stockcategoryid=" + stockcategoryid + ", name=" + name + "]";
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.ui.Model;
-import haagahelia.fi.stockapp.domain.CategoryRepository;
+import haagahelia.fi.stockapp.domain.StockCategoryRepository;
 import haagahelia.fi.stockapp.domain.Stock;
 import haagahelia.fi.stockapp.domain.StockRepository;
 
@@ -23,7 +23,7 @@ public class StockController {
     @Autowired
     private StockRepository repository;
     @Autowired
-    private CategoryRepository crepository;
+    private StockCategoryRepository screpository;
 
     // show all stocks
     @RequestMapping(value = "/stocklist")
@@ -48,7 +48,7 @@ public class StockController {
     @RequestMapping(value = "/add")
     public String addStock(Model model) {
         model.addAttribute("stock", new Stock());
-        model.addAttribute("categories", crepository.findAll());
+        model.addAttribute("stockCategories", screpository.findAll());
         return "addstock";
     }
 
@@ -63,7 +63,7 @@ public class StockController {
     @GetMapping(value = "/edit/{id}")
     public String editStock(@PathVariable("id") Long stockId, Model model) {
         model.addAttribute("stock", repository.findById(stockId));
-        model.addAttribute("categories", crepository.findAll());
+        model.addAttribute("stockCategories", screpository.findAll());
         return "updatestock";
     }
 
