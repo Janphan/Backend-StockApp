@@ -11,14 +11,27 @@
 <form th:action="@{/search}" method="get">
     <input type="text" name="keyword" placeholder="Enter keyword" >
     <button type="submit" class="btn btn-success">Search</button>
-    <button th:href="@{/stocklist}" th:text="Stocklist" class="btn btn-success">Stock List</button>
+    <a th:href="@{/stocklist}" class="btn btn-success">Stock List</a>
 </form>
 
 <div th:if="${searchResults}">
     <h3>Search Results:</h3>
-    <ul>
-        <li th:each="result : ${searchResults}" th:text="${result}"></li>
-    </ul>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Expired Date</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="result : ${searchResults}">
+                <td th:text="${result.name}"></td>
+                <td th:text="${result.expiredDate}"></td>
+                <td th:text="${result.quantity}"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
     </div>
 </html>

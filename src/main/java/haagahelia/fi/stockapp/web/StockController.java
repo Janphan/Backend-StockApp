@@ -94,7 +94,7 @@ public class StockController {
             searchResults = repository.findByName(keyword);
         }
         model.addAttribute("searchResults", searchResults);
-        model.addAttribute("stockCategories", screpository.findAll());
+
         return "searchform"; // Return the name of the HTML/Thymeleaf template
     }
 
