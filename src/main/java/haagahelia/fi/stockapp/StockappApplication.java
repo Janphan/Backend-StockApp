@@ -45,8 +45,8 @@ public class StockappApplication {
 					"user1@gmail.com", "USER");
 			AppUser user2 = new AppUser("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C",
 					"user2@gmail.com", "ADMIN");
-			urepository.save(user1);
-			urepository.save(user2);
+			// urepository.save(user1);
+			// urepository.save(user2);
 			log.info("fetch all stocks");
 			for (Stock stock : srepository.findAll()) {
 				log.info(stock.toString());

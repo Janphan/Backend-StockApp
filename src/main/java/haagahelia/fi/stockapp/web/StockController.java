@@ -1,6 +1,5 @@
 package haagahelia.fi.stockapp.web;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
