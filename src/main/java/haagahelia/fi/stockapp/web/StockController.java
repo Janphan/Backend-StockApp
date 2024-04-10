@@ -91,7 +91,7 @@ public class StockController {
 
         if (keyword != null && !keyword.isEmpty()) {
             // Perform search operation using the findByName method
-            searchResults = repository.findByName(keyword);
+            searchResults = repository.findByKeyword(keyword);
         }
         model.addAttribute("searchResults", searchResults);
 

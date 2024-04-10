@@ -11,7 +11,7 @@
 <form th:action="@{/search}" method="get">
     <input type="text" name="keyword" placeholder="Enter keyword" >
     <button type="submit" class="btn btn-success">Search</button>
-    <a th:href="@{/stocklist}" class="btn btn-success">Stock List</a>
+    <a th:href="@{/stocklist}" class="btn btn-success">Home</a>
 </form>
 
 <div th:if="${searchResults}">
@@ -22,6 +22,7 @@
                 <th>Name</th>
                 <th>Expired Date</th>
                 <th>Quantity</th>
+                <th>Category</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                 <td th:text="${result.name}"></td>
                 <td th:text="${result.expiredDate}"></td>
                 <td th:text="${result.quantity}"></td>
+                <td th:text="${result.stockCategory.name}"></td>
             </tr>
         </tbody>
     </table>

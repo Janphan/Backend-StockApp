@@ -35,8 +35,9 @@
                 <option th:each="stockCategory: ${stockCategories}" th:value="${stockCategory.stockCategoryid}" th:text="${stockCategory.name}"></option>
                 </select>
                 <input type="submit" value="Save" class="btn btn-success"></input>
+                
       </form>
-
+      <a th:href="@{/stocklist}" class="btn btn-success">Home</a>
 	</div>
 </body>
 </html>
