@@ -48,6 +48,9 @@ public class UserController {
                 newUser.setRole("USER");
                 if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
                     repository.save(newUser);
+                    System.out.println("JUKKATEST");
+                    System.out.println(newUser);
+                    System.out.println(newUser.getId());
                 } else {
                     bindingResult.rejectValue("username", "err.username", "Username already exists");
                     return "signup";

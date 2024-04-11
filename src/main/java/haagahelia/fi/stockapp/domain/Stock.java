@@ -13,7 +13,7 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String expiredDate;
+    private String expiredDate; // LocalDate
     private int quantity;
     private String description;
     private double price;
